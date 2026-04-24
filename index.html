@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>簿記合格ナビ｜日商簿記資格試験の個別指導マッチング【早稲田大学院生が直接指導】</title>
+  <meta name="description" content="日商簿記1級・2級・3級の資格試験対策なら簿記合格ナビ。現役早稲田大学大学院会計研究科の院生が完全個別指導。1時間2,800円（入会金なし）。今すぐ無料相談。" />
+  <meta name="keywords" content="簿記 個別指導,日商簿記 家庭教師,簿記 資格試験 対策,簿記2級 個別指導,簿記1級 個別指導,早稲田 簿記,会計 個別指導,簿記 オンライン 個別,日商簿記 合格,簿記試験 対策,簿記 マッチング" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="簿記合格ナビ｜日商簿記資格試験・完全個別指導マッチング" />
+  <meta property="og:description" content="現役早稲田大学院会計研究科の院生が1対1で徹底指導。日商簿記1〜3級対応。1時間2,800円・入会金なし。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <link rel="canonical" href="https://boki-navi.jp/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2e5a;
+      --navy-light: #253d7a;
+      --gold: #d4a017;
+      --gold-light: #f5c842;
+      --accent: #e8f0fe;
+      --white: #ffffff;
+      --gray-50: #f8f9fa;
+      --gray-100: #f1f3f5;
+      --gray-200: #e9ecef;
+      --gray-600: #495057;
+      --gray-700: #343a40;
+      --gray-800: #212529;
+      --red-soft: #fff5f5;
+      --green-soft: #f0fff4;
+      --green: #2d9c58;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -1px;
+    }
+    .logo-text {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .logo-text span {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-600);
+      display: block;
+    }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--navy); }
+    .btn-cta-sm {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .btn-cta-sm:hover { background: var(--gold-light); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 64px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e4a8a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212,160,23,0.2);
+      border: 1px solid rgba(212,160,23,0.4);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero-badge::before { content: '★'; font-size: 10px; }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    .hero-cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 12px;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(212,160,23,0.4);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212,160,23,0.5);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 12px;
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      color: white;
+    }
+    .hero-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-stat {
+      text-align: center;
+      padding: 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+    }
+    .hero-stat .num {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat .label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+    .hero-check-list { list-style: none; }
+    .hero-check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 10px;
+    }
+    .hero-check-list li::before {
+      content: '✓';
+      color: var(--gold-light);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 16px 24px;
+    }
+    .trust-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+    .trust-icon {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .section-desc {
+      text-align: center;
+      font-size: 16px;
+      color: var(--gray-600);
+      max-width: 640px;
+      margin: 0 auto 56px;
+      line-height: 1.8;
+    }
+
+    /* ===== FEATURES ===== */
+    #features { background: var(--white); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .feature-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--gray-200);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+    .feature-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--navy);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* ===== APPEAL: Waseda ===== */
+    #waseda {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a70 100%);
+      padding: 80px 24px;
+    }
+    #waseda .section-label { color: var(--gold-light); }
+    #waseda .section-title { color: var(--white); }
+    #waseda .section-desc { color: rgba(255,255,255,0.75); }
+    .waseda-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .waseda-text h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .waseda-text p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .waseda-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .waseda-highlight {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .waseda-highlight-icon {
+      width: 48px; height: 48px;
+      background: var(--gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .waseda-highlight-body h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .waseda-highlight-body p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    #howto { background: var(--gray-50); }
+    .howto-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .howto-tab {
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .howto-tab.active {
+      background: var(--navy);
+      color: white;
+    }
+    .howto-tab:not(.active) {
+      background: white;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--navy) 0, var(--navy) 8px, transparent 8px, transparent 16px);
+    }
+    .step-item {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .step-circle {
+      width: 88px; height: 88px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 16px rgba(26,46,90,0.3);
+    }
+    .step-num {
+      position: absolute;
+      top: -4px; right: -4px;
+      width: 26px; height: 26px;
+      background: var(--gold);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-item h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .step-item p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* ===== PRICING ===== */
+    #pricing { background: var(--white); }
+    .pricing-mode-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+      background: var(--gray-100);
+      border-radius: 12px;
+      padding: 6px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pricing-mode-btn {
+      padding: 10px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--gray-600);
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .pricing-mode-btn.active {
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 2px 8px rgba(26,46,90,0.3);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .price-card {
+      background: var(--gray-50);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .price-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .price-card.featured {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+      transform: scale(1.03);
+    }
+    .price-card.featured:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+    .price-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 18px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .price-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .price-card.featured h3 { color: var(--gold-light); }
+    .price-card:not(.featured) h3 { color: var(--gray-600); }
+    .price-grade {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .price-card.featured .price-grade { color: white; }
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .price-yen { font-size: 18px; font-weight: 700; }
+    .price-num {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1;
+      font-family: 'Inter', sans-serif;
+    }
+    .price-unit { font-size: 14px; font-weight: 500; }
+    .price-card.featured .price-yen,
+    .price-card.featured .price-num,
+    .price-card.featured .price-unit { color: var(--gold-light); }
+    .price-card:not(.featured) .price-num { color: var(--navy); }
+    .price-sub-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+    }
+    .price-card.featured .price-sub-row { border-color: rgba(255,255,255,0.15); }
+    .price-card:not(.featured) .price-sub-row { border-color: var(--gray-200); }
+    .price-sub-label {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .online-label { background: #dbeafe; color: #1e40af; }
+    .offline-label { background: #dcfce7; color: #166534; }
+    .price-sub-amount {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .price-card.featured .price-sub-amount { color: rgba(255,255,255,0.7); }
+    .price-card:not(.featured) .price-sub-amount { color: var(--gray-600); }
+    .price-note {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+    .price-card.featured .price-note { color: rgba(255,255,255,0.6); }
+    .price-card:not(.featured) .price-note { color: var(--gray-600); }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid; }
+    .price-card.featured .price-features { border-color: rgba(255,255,255,0.15); }
+    .price-card:not(.featured) .price-features { border-color: var(--gray-200); }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.85); }
+    .price-check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .price-card.featured .price-check {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .price-card:not(.featured) .price-check {
+      background: var(--green);
+      color: white;
+    }
+    .pricing-note-box {
+      background: var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--navy);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pricing-note-box::before {
+      content: 'ℹ';
+      font-weight: 900;
+      font-size: 18px;
+      flex-shrink: 0;
+      color: var(--navy);
+    }
+
+    /* ===== TUTORS ===== */
+    #tutors { background: var(--gray-50); }
+    .tutor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tutor-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+    }
+    .tutor-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .tutor-avatar {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .tutor-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .tutor-school {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .tutor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .tutor-tag {
+      background: var(--accent);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .tutor-card p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .tutor-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ===== FAQ ===== */
+    #faq { background: var(--white); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 24px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      text-align: left;
+      font-family: inherit;
+    }
+    .faq-q-icon {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .faq-q-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .faq-arrow {
+      font-size: 18px;
+      color: var(--navy);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 0 24px 44px;
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.9;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: linear-gradient(135deg, #f8f9fe 0%, var(--accent) 100%);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-method-icon {
+      width: 44px; height: 44px;
+      background: var(--navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .contact-method-body h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 2px;
+    }
+    .contact-method-body p {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-form-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-required {
+      display: inline-block;
+      background: #e53e3e;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+      background: var(--white);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-submit:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+    .form-privacy-note {
+      font-size: 12px;
+      color: var(--gray-600);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .form-privacy-note a { color: var(--navy); text-decoration: underline; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      padding: 56px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand { }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-logo-icon {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .footer-logo-text {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 12px; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-legal-links a:hover { color: var(--gold-light); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 24px 80px;
+      }
+      .features-grid { grid-template-columns: 1fr; }
+      .waseda-grid { grid-template-columns: 1fr; }
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .steps-grid::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .price-card.featured { transform: scale(1); }
+      .tutor-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .trust-bar-inner { gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .hero-cta-group { flex-direction: column; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== UTILITY ===== */
+    .text-center { text-align: center; }
+    .mt-8 { margin-top: 32px; }
+    .success-msg {
+      display: none;
+      background: var(--green-soft);
+      border: 1px solid var(--green);
+      color: var(--green);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 12px;
+      text-align: center;
+    }
+  </style>
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "簿記合格ナビ",
+    "description": "現役早稲田大学大学院会計研究科の院生による日商簿記資格試験の個別指導マッチングサービス",
+    "url": "https://boki-navi.jp",
+    "email": "ryoto140529@gmail.com",
+    "priceRange": "¥2,800〜/時間",
+    "serviceType": "個別指導・家庭教師マッチング",
+    "areaServed": "日本全国（オンライン対応）",
+    "offers": {
+      "@type": "Offer",
+      "name": "簿記個別指導",
+      "price": "2800",
+      "priceCurrency": "JPY",
+      "description": "1時間の個別指導セッション"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">簿</div>
+      <div class="logo-text">
+        簿記合格ナビ
+        <span>日商簿記資格試験・個別指導マッチング</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#features">特徴</a>
+      <a href="#howto">使い方</a>
+      <a href="#pricing">料金</a>
+      <a href="#tutors">講師</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn-cta-sm">無料相談する</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">早稲田大学大学院会計研究科 現役院生が指導</div>
+      <h1>
+        日商簿記の合格を<br>
+        <em>プロの院生</em>が<br>
+        マンツーマンで導く
+      </h1>
+      <p class="hero-desc">
+        難しい簿記の資格試験も、<strong style="color:#f5c842">現役の早稲田大学大学院会計研究科</strong>で学ぶ院生が完全個別指導。
+        1対1だから質問し放題。あなたのペースで確実に合格へ。
+      </p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn-primary">📩 無料相談・お問い合わせ</a>
+        <a href="#howto" class="btn-secondary">使い方を見る →</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>サービス概要</h3>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">¥2,800〜</div>
+          <div class="label">3級〜1級 級別料金</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">¥0</div>
+          <div class="label">入会金・登録費</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">1対1</div>
+          <div class="label">完全個別指導</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">1〜3級</div>
+          <div class="label">日商簿記 全対応</div>
+        </div>
+      </div>
+      <ul class="hero-check-list">
+        <li>早稲田大学大学院会計研究科の現役院生が直接指導</li>
+        <li>入会金・年会費・登録料すべて無料</li>
+        <li>日商簿記1級〜3級まで全グレード対応</li>
+        <li>オンライン授業なので全国どこでも受講可能</li>
+        <li>好きな時間・曜日に柔軟にスケジュール</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🎓</div>
+      早稲田大学院生が指導
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💰</div>
+      入会金・登録料ゼロ
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📱</div>
+      オンライン全国対応
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⏰</div>
+      柔軟な時間設定
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">✉️</div>
+      まず無料メール相談
+    </div>
+  </div>
+</div>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">簿記合格ナビが選ばれる理由</h2>
+    <p class="section-desc">他の家庭教師・予備校と比べて、なぜ「簿記合格ナビ」なのか。3つの強みをご覧ください。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🎓</div>
+        <h3>現役の早稲田大学院生が<br>1対1で完全指導</h3>
+        <p>早稲田大学大学院会計研究科で会計・簿記を専門的に学ぶ現役院生が、あなたの弱点を把握して個別最適化されたカリキュラムで指導します。「なぜそうなるのか」を丁寧に解説し、試験本番で確実に解ける力を養います。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">💡</div>
+        <h3>圧倒的なコスパ<br>入会金・登録料なし</h3>
+        <p>予備校や大手の家庭教師派遣では数万円の入会金が必要なことも。当サービスは入会金ゼロ・登録費ゼロ。1時間2,800円のシンプルな料金体系で、1コマから気軽に始められます。続けやすい料金設計にこだわりました。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap">🗓️</div>
+        <h3>あなたのペースで<br>柔軟にスケジュール</h3>
+        <p>社会人・大学生・高校生など、忙しい方でも安心。オンライン（Zoom等）なので通学不要。平日夜・土日・試験直前の集中授業など、講師と相談して自由に日程を決められます。1コマ単位での予約なので無駄がありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WASEDA APPEAL ===== -->
+<section id="waseda">
+  <div class="section-inner">
+    <div class="section-label">Academic Excellence</div>
+    <h2 class="section-title" style="color:white">早稲田大学大学院<br>会計研究科とは</h2>
+    <p class="section-desc">なぜ早稲田院生が指導するのか。その専門性と信頼性をご確認ください。</p>
+    <div class="waseda-grid">
+      <div class="waseda-text">
+        <h3>会計・簿記のエキスパートが<br>あなたの合格をサポート</h3>
+        <p>早稲田大学大学院会計研究科（WBS会計）は、公認会計士・税理士・財務専門家を育成する国内トップクラスの専門職大学院です。そこで学ぶ院生は、簿記・財務会計・管理会計を日々専門的に研究しています。</p>
+        <p>その知識と理解の深さは、単に試験に合格した一般の講師とは次元が異なります。「なぜこの仕訳になるのか」「試験でどう考えるべきか」を本質から解説できる指導力が強みです。</p>
+      </div>
+      <div class="waseda-highlights">
+        <div class="waseda-highlight">
+          <div class="waseda-highlight-icon">🏫</div>
+          <div class="waseda-highlight-body">
+            <h4>早稲田大学大学院 会計研究科（WBS）</h4>
+            <p>公認会計士・税理士輩出数で国内屈指の専門職大学院。会計・ファイナンス・税務を体系的に学ぶ環境。</p>
+          </div>
+        </div>
+        <div class="waseda-highlight">
+          <div class="waseda-highlight-icon">📚</div>
+          <div class="waseda-highlight-body">
+            <h4>財務会計・管理会計を専門的に研究</h4>
+            <p>日商簿記の基礎から応用まで、研究者レベルの深い理解をもとに指導。理論と実践の両面からサポート。</p>
+          </div>
+        </div>
+        <div class="waseda-highlight">
+          <div class="waseda-highlight-icon">🎯</div>
+          <div class="waseda-highlight-body">
+            <h4>試験傾向を熟知した実践的指導</h4>
+            <p>日商簿記の過去問・出題傾向を徹底分析。合格に直結するポイントを的確に絞って効率よく指導します。</p>
+          </div>
+        </div>
+        <div class="waseda-highlight">
+          <div class="waseda-highlight-icon">🤝</div>
+          <div class="waseda-highlight-body">
+            <h4>1対1だから何でも聞ける安心感</h4>
+            <p>集団授業では聞けない「初歩的な疑問」も、個別指導なら遠慮なく質問できます。理解できるまで丁寧に対応。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="howto">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-desc">お問い合わせから授業開始まで、簡単4ステップ。最短3日で授業を開始できます。</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-circle">
+          📩
+          <div class="step-num">1</div>
+        </div>
+        <h4>メールで<br>無料お問い合わせ</h4>
+        <p>希望する簿記の級、目標試験日、授業頻度などをメールでお知らせください。24時間以内に返信します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          🗣️
+          <div class="step-num">2</div>
+        </div>
+        <h4>無料相談・<br>マッチング</h4>
+        <p>現状のレベルや目標をヒアリング。最適な講師（院生）を選定し、スケジュールを調整します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          📋
+          <div class="step-num">3</div>
+        </div>
+        <h4>個別カリキュラム<br>の作成</h4>
+        <p>あなたの現状に合わせたオーダーメイドの学習計画を作成。最短距離で合格を目指します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          🎓
+          <div class="step-num">4</div>
+        </div>
+        <h4>授業スタート<br>（オンライン）</h4>
+        <p>Zoom等のオンラインツールで授業を開始。全国どこからでも受講できます。授業後の質問もOK。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">明確な料金体系</h2>
+    <p class="section-desc">入会金・登録費は一切なし。オンライン・対面どちらも選べます。1コマから気軽にどうぞ。</p>
+
+    <div class="pricing-mode-toggle">
+      <button class="pricing-mode-btn active" onclick="showMode('online', this)">💻 オンライン（Zoom等）</button>
+      <button class="pricing-mode-btn" onclick="showMode('offline', this)">🏫 対面（東京都内）</button>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- 3級 -->
+      <div class="price-card">
+        <h3>Standard</h3>
+        <div class="price-grade">日商簿記 3級</div>
+        <div class="price-amount">
+          <span class="price-yen">¥</span>
+          <span class="price-num online-price" data-online="2,800" data-offline="3,500">2,800</span>
+          <span class="price-unit">/ 1時間</span>
+        </div>
+        <div class="price-sub-row">
+          <span class="price-sub-label online-label online-mode">オンライン</span>
+          <span class="price-sub-label offline-label offline-mode" style="display:none">対面</span>
+          <span class="price-sub-amount">税込・入会金なし</span>
+        </div>
+        <div class="price-note">初めて簿記を学ぶ方から3級合格を目指す方向け。仕訳の基礎から決算書まで丁寧に指導。</div>
+        <ul class="price-features">
+          <li><div class="price-check">✓</div>仕訳・勘定科目の基礎固め</li>
+          <li><div class="price-check">✓</div>試算表・財務諸表の作成</li>
+          <li><div class="price-check">✓</div>過去問・模擬試験対策</li>
+          <li><div class="price-check">✓</div>授業後メール質問OK</li>
+        </ul>
+      </div>
+
+      <!-- 2級 -->
+      <div class="price-card featured">
+        <div class="price-badge">人気 No.1</div>
+        <h3>Advanced</h3>
+        <div class="price-grade">日商簿記 2級</div>
+        <div class="price-amount">
+          <span class="price-yen">¥</span>
+          <span class="price-num online-price" data-online="3,800" data-offline="4,500">3,800</span>
+          <span class="price-unit">/ 1時間</span>
+        </div>
+        <div class="price-sub-row">
+          <span class="price-sub-label online-label online-mode" style="background:rgba(219,234,254,0.3);color:#93c5fd">オンライン</span>
+          <span class="price-sub-label offline-label offline-mode" style="display:none;background:rgba(220,252,231,0.3);color:#86efac">対面</span>
+          <span class="price-sub-amount">税込・入会金なし</span>
+        </div>
+        <div class="price-note">商業簿記＋工業簿記の両分野をカバー。就職・転職・昇進に直結する人気グレード。</div>
+        <ul class="price-features">
+          <li><div class="price-check">✓</div>商業簿記（連結会計・税効果等）</li>
+          <li><div class="price-check">✓</div>工業簿記・原価計算</li>
+          <li><div class="price-check">✓</div>個別カリキュラム作成</li>
+          <li><div class="price-check">✓</div>弱点分野の集中特訓</li>
+          <li><div class="price-check">✓</div>授業後メール質問OK</li>
+        </ul>
+      </div>
+
+      <!-- 1級 -->
+      <div class="price-card">
+        <h3>Expert</h3>
+        <div class="price-grade">日商簿記 1級</div>
+        <div class="price-amount">
+          <span class="price-yen">¥</span>
+          <span class="price-num online-price" data-online="5,500" data-offline="6,500">5,500</span>
+          <span class="price-unit">/ 1時間</span>
+        </div>
+        <div class="price-sub-row">
+          <span class="price-sub-label online-label online-mode">オンライン</span>
+          <span class="price-sub-label offline-label offline-mode" style="display:none">対面</span>
+          <span class="price-sub-amount">税込・入会金なし</span>
+        </div>
+        <div class="price-note">会計士・税理士受験の登竜門。早稲田院生の専門知識を活かした高水準な指導。</div>
+        <ul class="price-features">
+          <li><div class="price-check">✓</div>財務・管理・原価・工業 全範囲</li>
+          <li><div class="price-check">✓</div>連結・税効果・企業結合</li>
+          <li><div class="price-check">✓</div>論点整理と本試験対策</li>
+          <li><div class="price-check">✓</div>授業後メール質問OK</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-note-box">
+      ℹ️ <span>授業料は事前銀行振込制です（振込手数料は受講生負担）。対面授業は東京都内のカフェ・図書館等で実施します（場所は要相談）。1コマ単位から予約可能。複数コマのまとめ予約も承ります。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TUTORS ===== -->
+<section id="tutors">
+  <div class="section-inner">
+    <div class="section-label">Our Tutors</div>
+    <h2 class="section-title">登録講師（一例）</h2>
+    <p class="section-desc">全員が早稲田大学大学院会計研究科に在籍する現役院生。会計・簿記の専門家として厳選しています。</p>
+    <div class="tutor-grid">
+      <div class="tutor-card">
+        <div class="tutor-avatar">🎓</div>
+        <h4>R. T. 講師</h4>
+        <div class="tutor-school">早稲田大学大学院 会計研究科 在籍</div>
+        <div class="tutor-tags">
+          <span class="tutor-tag">日商簿記1級</span>
+          <span class="tutor-tag">財務会計</span>
+          <span class="tutor-tag">管理会計</span>
+        </div>
+        <p>会計研究科で財務会計を専攻。日商簿記1〜3級の指導経験あり。「なぜそうなるか」を丁寧に解説することを得意としています。試験直前の集中特訓も対応。</p>
+      </div>
+      <div class="tutor-card">
+        <div class="tutor-avatar">📊</div>
+        <h4>M. K. 講師</h4>
+        <div class="tutor-school">早稲田大学大学院 会計研究科 在籍</div>
+        <div class="tutor-tags">
+          <span class="tutor-tag">日商簿記2級</span>
+          <span class="tutor-tag">工業簿記</span>
+          <span class="tutor-tag">税務会計</span>
+        </div>
+        <p>工業簿記・原価計算を得意とする講師。2級の工業簿記パートで苦手な方に特におすすめ。社会人受講者への指導経験も豊富で、短期集中での合格実績があります。</p>
+      </div>
+      <div class="tutor-card">
+        <div class="tutor-avatar">💼</div>
+        <h4>S. H. 講師</h4>
+        <div class="tutor-school">早稲田大学大学院 会計研究科 在籍</div>
+        <div class="tutor-tags">
+          <span class="tutor-tag">日商簿記3級</span>
+          <span class="tutor-tag">初心者向け</span>
+          <span class="tutor-tag">基礎固め</span>
+        </div>
+        <p>「簿記が全くわからない」という初心者の方に特化した指導が得意。仕訳の基礎から決算書の読み方まで、わかりやすい言葉で丁寧に解説します。</p>
+      </div>
+    </div>
+    <div class="tutor-cta">
+      <p style="color:var(--gray-600);font-size:14px;margin-bottom:16px">※ 講師は複数名在籍しています。ご希望のグレード・スケジュールに応じてマッチングします。</p>
+      <a href="#contact" class="btn-primary">講師についてお問い合わせ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくある質問</h2>
+    <p class="section-desc">ご不明な点はお気軽にメールでもお問い合わせください。</p>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">本当に入会金・登録費はかからないのですか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          はい、入会金・登録費・紹介料は一切かかりません。かかる費用は授業料のみで、1時間あたり2,800円（税込）です。初回のご相談もメール・オンラインで無料対応しています。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">何コマから申し込めますか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          1コマ（1時間）から申し込みいただけます。「試験直前だけ1回だけ受けたい」「まずお試しで受けてみたい」という方もお気軽にどうぞ。継続受講の場合は複数コマをまとめてご予約いただくことも可能です。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">オンラインのみですか？対面授業はできますか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          基本的にオンライン（Zoom、Google Meet等）での授業となります。全国どこからでも受講いただけます。対面授業についてはご要望をいただいた場合、個別にご相談の上対応できる場合があります（東京都内エリアのみ）。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">日商簿記の何級に対応していますか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          日商簿記3級・2級・1級のすべてに対応しています。初めて簿記を勉強される方（3級）から、難関の1級を目指す方まで、それぞれのレベルに適した講師がマッチングします。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">講師は本当に早稲田大学大学院の院生ですか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          はい。登録している講師は全員、早稲田大学大学院会計研究科に在籍している現役院生です。会計・財務・簿記を専門的に学ぶ環境にあるため、深い理解に基づいた指導が可能です。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">キャンセルはできますか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          授業の前日（日本時間23:59）までにご連絡いただいた場合、キャンセル料は発生しません。当日のキャンセルについては授業料の50%をキャンセル料として申し受ける場合があります。詳細は利用規約をご確認ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">支払い方法を教えてください。</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          現在、銀行振込にてお支払いを承っています。授業の前日までにご入金をお願いしています。振込先は予約確定後にメールでご案内します。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">社会人や大学生でも受講できますか？</div>
+          <div class="faq-arrow">▾</div>
+        </button>
+        <div class="faq-a">
+          もちろんです。高校生・大学生・社会人・主婦の方など、幅広い方に受講いただいています。特にオンラインですので、会社帰りや休日の空き時間を活用して効率よく学習できます。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">無料相談・お問い合わせ</h2>
+    <p class="section-desc">ご質問・受講のご相談はメールにて承ります。24時間以内にご返信いたします。</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>お気軽にご相談ください</h3>
+        <p>
+          「どの級から始めたらいいかわからない」「社会人でも受講できる？」「まず話だけ聞きたい」など、どんな内容でも大丈夫です。
+          まずはメールでお気軽にご連絡ください。
+        </p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="contact-method-icon">✉️</div>
+            <div class="contact-method-body">
+              <h4>メールアドレス</h4>
+              <p>ryoto140529@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">⏱️</div>
+            <div class="contact-method-body">
+              <h4>返信時間の目安</h4>
+              <p>24時間以内（土日祝も対応）</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">📝</div>
+            <div class="contact-method-body">
+              <h4>お問い合わせ内容の例</h4>
+              <p>希望の級・目標試験日・現状のレベル・受講頻度</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card">
+        <h3>📩 お問い合わせフォーム</h3>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>お名前<span class="form-required">必須</span></label>
+            <input type="text" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="form-group">
+            <label>メールアドレス<span class="form-required">必須</span></label>
+            <input type="email" name="email" placeholder="example@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>希望する級<span class="form-required">必須</span></label>
+            <select name="grade" required>
+              <option value="">選択してください</option>
+              <option value="3">日商簿記 3級</option>
+              <option value="2">日商簿記 2級</option>
+              <option value="1">日商簿記 1級</option>
+              <option value="other">まだ決まっていない / 相談したい</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>目標試験日（任意）</label>
+            <input type="text" name="exam_date" placeholder="例：2025年6月（第170回）" />
+          </div>
+          <div class="form-group">
+            <label>お問い合わせ内容<span class="form-required">必須</span></label>
+            <textarea name="message" placeholder="現在の学習状況、ご質問・ご相談内容などをご記入ください。" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">送信する（メールへ転送）</button>
+          <div class="success-msg" id="successMsg">✅ お問い合わせを承りました。24時間以内にご返信いたします。</div>
+        </form>
+        <p class="form-privacy-note">
+          送信いただいた情報は、お問い合わせへの返答以外には使用しません。<br>
+          <a href="privacy.html">プライバシーポリシー</a>をご確認の上お送りください。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">簿</div>
+          <div class="footer-logo-text">簿記合格ナビ</div>
+        </div>
+        <p>現役の早稲田大学大学院会計研究科院生による日商簿記資格試験の個別指導マッチングサービス。1時間2,800円・入会金なしのシンプルな料金で、あなたの合格を全力サポートします。</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4)">📧 ryoto140529@gmail.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="#features">特徴・強み</a></li>
+          <li><a href="#waseda">早稲田院生について</a></li>
+          <li><a href="#howto">ご利用の流れ</a></li>
+          <li><a href="#pricing">料金</a></li>
+          <li><a href="#tutors">講師紹介</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>対応グレード</h4>
+        <ul>
+          <li><a href="#contact">日商簿記 3級</a></li>
+          <li><a href="#contact">日商簿記 2級</a></li>
+          <li><a href="#contact">日商簿記 1級</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>法的情報</h4>
+        <ul>
+          <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 簿記合格ナビ. All rights reserved. 個人事業として運営しています。</p>
+      <div class="footer-legal-links">
+        <a href="tokushoho.html">特定商取引法</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Pricing mode toggle
+  function showMode(mode, btn) {
+    document.querySelectorAll('.pricing-mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.online-price').forEach(el => {
+      el.textContent = mode === 'online' ? el.dataset.online : el.dataset.offline;
+    });
+    document.querySelectorAll('.online-mode').forEach(el => el.style.display = mode === 'online' ? '' : 'none');
+    document.querySelectorAll('.offline-mode').forEach(el => el.style.display = mode === 'offline' ? '' : 'none');
+  }
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    if (nav.style.display === 'flex') {
+      nav.style.display = '';
+    } else {
+      nav.style.display = 'flex';
+      nav.style.position = 'fixed';
+      nav.style.top = '64px';
+      nav.style.left = '0';
+      nav.style.right = '0';
+      nav.style.background = 'white';
+      nav.style.flexDirection = 'column';
+      nav.style.padding = '20px 24px';
+      nav.style.borderBottom = '1px solid #e9ecef';
+      nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+      nav.style.zIndex = '99';
+    }
+  }
+
+  // Contact form — mailto fallback
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const grade = form.grade.value;
+    const examDate = form.exam_date.value;
+    const message = form.message.value;
+
+    const gradeLabel = {
+      '1': '日商簿記1級',
+      '2': '日商簿記2級',
+      '3': '日商簿記3級',
+      'other': '未定・要相談'
+    }[grade] || grade;
+
+    const body = encodeURIComponent(
+      `【簿記合格ナビ お問い合わせ】\n\n` +
+      `お名前：${name}\n` +
+      `メールアドレス：${email}\n` +
+      `希望する級：${gradeLabel}\n` +
+      `目標試験日：${examDate || '未定'}\n\n` +
+      `【お問い合わせ内容】\n${message}`
+    );
+
+    const subject = encodeURIComponent(`【簿記合格ナビ】お問い合わせ：${name}様`);
+    window.location.href = `mailto:ryoto140529@gmail.com?subject=${subject}&body=${body}`;
+
+    document.getElementById('successMsg').style.display = 'block';
+    form.reset();
+    setTimeout(() => {
+      document.getElementById('successMsg').style.display = 'none';
+    }, 5000);
+  }
+
+  // Smooth scroll offset for fixed header
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

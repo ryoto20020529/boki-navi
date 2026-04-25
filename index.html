@@ -915,6 +915,8 @@
       border-radius: var(--radius-lg);
       padding: 36px;
       box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
     }
     .contact-form-card h3 {
       font-size: 18px;
@@ -922,9 +924,11 @@
       color: var(--navy);
       margin-bottom: 24px;
     }
-    .form-group { margin-bottom: 20px; }
+    .form-group { margin-bottom: 18px; }
     .form-group label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 13px;
       font-weight: 700;
       color: var(--navy);
@@ -938,8 +942,6 @@
       font-weight: 700;
       padding: 1px 6px;
       border-radius: 3px;
-      margin-left: 4px;
-      vertical-align: middle;
     }
     .form-group input,
     .form-group select,
@@ -952,7 +954,7 @@
       font-family: inherit;
       color: var(--gray-800);
       background: var(--gray-50);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
       outline: none;
     }
     .form-group input:focus,
@@ -960,8 +962,28 @@
     .form-group textarea:focus {
       border-color: var(--navy);
       background: var(--white);
+      box-shadow: 0 0 0 3px rgba(26,46,90,0.08);
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+      border-color: #e53e3e;
+      background: #fff5f5;
+    }
+    .form-error-msg {
+      font-size: 12px;
+      color: #e53e3e;
+      margin-top: 4px;
+      display: none;
     }
     .form-group textarea { min-height: 120px; resize: vertical; }
+    .char-count {
+      font-size: 11px;
+      color: var(--gray-600);
+      text-align: right;
+      margin-top: 4px;
+    }
+    .char-count.warn { color: #e53e3e; }
     .btn-submit {
       width: 100%;
       padding: 16px;
@@ -974,10 +996,84 @@
       cursor: pointer;
       font-family: inherit;
       transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .btn-submit:hover {
+    .btn-submit:hover:not(:disabled) {
       background: var(--navy-light);
       transform: translateY(-1px);
+    }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+      flex-shrink: 0;
+    }
+    /* 送信完了カード */
+    .form-success-card {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .form-success-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(34,197,94,0.3);
+    }
+    .form-success-card h4 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .form-success-card p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .btn-back-form {
+      background: var(--gray-100);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .btn-back-form:hover { background: var(--gray-200); }
+    /* エラーバー */
+    .form-error-bar {
+      display: none;
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #c53030;
+      margin-bottom: 16px;
+      align-items: center;
+      gap: 8px;
     }
     .form-privacy-note {
       font-size: 12px;
@@ -1830,41 +1926,74 @@
         </div>
       </div>
       <div class="contact-form-card">
-        <h3>📩 お問い合わせフォーム</h3>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label>お名前<span class="form-required">必須</span></label>
-            <input type="text" name="name" placeholder="山田 太郎" required />
+        <!-- 通常フォーム -->
+        <div id="formView">
+          <h3>📩 お問い合わせフォーム</h3>
+          <div class="form-error-bar" id="errorBar">
+            ⚠️ 送信に失敗しました。時間をおいて再度お試しいただくか、直接メール（ryoto140529@gmail.com）までご連絡ください。
           </div>
-          <div class="form-group">
-            <label>メールアドレス<span class="form-required">必須</span></label>
-            <input type="email" name="email" placeholder="example@email.com" required />
-          </div>
-          <div class="form-group">
-            <label>希望する級<span class="form-required">必須</span></label>
-            <select name="grade" required>
-              <option value="">選択してください</option>
-              <option value="3">日商簿記 3級</option>
-              <option value="2">日商簿記 2級</option>
-              <option value="1">日商簿記 1級</option>
-              <option value="other">まだ決まっていない / 相談したい</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>目標試験日（任意）</label>
-            <input type="text" name="exam_date" placeholder="例：2025年6月（第170回）" />
-          </div>
-          <div class="form-group">
-            <label>お問い合わせ内容<span class="form-required">必須</span></label>
-            <textarea name="message" placeholder="現在の学習状況、ご質問・ご相談内容などをご記入ください。" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">送信する（メールへ転送）</button>
-          <div class="success-msg" id="successMsg">✅ お問い合わせを承りました。24時間以内にご返信いたします。</div>
-        </form>
-        <p class="form-privacy-note">
-          送信いただいた情報は、お問い合わせへの返答以外には使用しません。<br>
-          <a href="privacy.html">プライバシーポリシー</a>をご確認の上お送りください。
-        </p>
+          <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-group">
+              <label>お名前 <span class="form-required">必須</span></label>
+              <input type="text" name="name" placeholder="山田 太郎" autocomplete="name" />
+              <div class="form-error-msg" id="err-name">お名前を入力してください</div>
+            </div>
+            <div class="form-group">
+              <label>メールアドレス <span class="form-required">必須</span></label>
+              <input type="email" name="email" placeholder="example@email.com" autocomplete="email" />
+              <div class="form-error-msg" id="err-email">正しいメールアドレスを入力してください</div>
+            </div>
+            <div class="form-group">
+              <label>ご希望のサービス <span class="form-required">必須</span></label>
+              <select name="service">
+                <option value="">選択してください</option>
+                <optgroup label="日商簿記 個別指導">
+                  <option value="boki3">日商簿記 3級</option>
+                  <option value="boki2">日商簿記 2級</option>
+                  <option value="boki1">日商簿記 1級</option>
+                </optgroup>
+                <optgroup label="その他サービス">
+                  <option value="actuary">アクチュアリー試験対策</option>
+                  <option value="waseda">早稲田会計研究科 受験対策</option>
+                  <option value="other">まだ決まっていない・相談したい</option>
+                </optgroup>
+              </select>
+              <div class="form-error-msg" id="err-service">サービスを選択してください</div>
+            </div>
+            <div class="form-group">
+              <label>目標試験日・受験予定時期（任意）</label>
+              <input type="text" name="exam_date" placeholder="例：2025年6月、2026年春ごろ" />
+            </div>
+            <div class="form-group">
+              <label>お問い合わせ内容 <span class="form-required">必須</span></label>
+              <textarea name="message" id="messageArea" placeholder="現在の学習状況、ご質問・ご相談内容などをご記入ください。" oninput="updateCharCount(this)"></textarea>
+              <div class="char-count" id="charCount">0 / 1000文字</div>
+              <div class="form-error-msg" id="err-message">お問い合わせ内容を入力してください</div>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <div class="spinner" id="spinner"></div>
+              <span id="submitLabel">送信する</span>
+            </button>
+          </form>
+          <p class="form-privacy-note">
+            送信いただいた情報はお問い合わせへの返答以外に使用しません。<br>
+            <a href="privacy.html">プライバシーポリシー</a>をご確認の上お送りください。
+          </p>
+        </div>
+
+        <!-- 送信完了カード -->
+        <div class="form-success-card" id="successView">
+          <div class="form-success-icon">✓</div>
+          <h4>送信が完了しました！</h4>
+          <p>
+            お問い合わせありがとうございます。<br>
+            <strong>24時間以内</strong>にご入力のメールアドレスへ返信いたします。<br>
+            しばらくお待ちください。
+          </p>
+          <button class="btn-back-form" onclick="resetForm()">← 別の件で問い合わせる</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1960,40 +2089,92 @@
     }
   }
 
-  // Contact form — mailto fallback
-  function handleSubmit(e) {
+  // ===== CONTACT FORM =====
+  const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY'; // ← web3forms.com でメアドを入力して取得したキーに差し替え
+
+  function updateCharCount(el) {
+    const count = el.value.length;
+    const el2 = document.getElementById('charCount');
+    el2.textContent = `${count} / 1000文字`;
+    el2.className = 'char-count' + (count > 900 ? ' warn' : '');
+  }
+
+  function validateForm(form) {
+    let valid = true;
+    const fields = [
+      { el: form.name,    err: 'err-name',    check: v => v.trim().length > 0 },
+      { el: form.email,   err: 'err-email',   check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { el: form.service, err: 'err-service', check: v => v !== '' },
+      { el: form.message, err: 'err-message', check: v => v.trim().length > 0 },
+    ];
+    fields.forEach(({ el, err, check }) => {
+      const ok = check(el.value);
+      el.classList.toggle('error', !ok);
+      document.getElementById(err).style.display = ok ? 'none' : 'block';
+      if (!ok) valid = false;
+    });
+    return valid;
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const grade = form.grade.value;
-    const examDate = form.exam_date.value;
-    const message = form.message.value;
 
-    const gradeLabel = {
-      '1': '日商簿記1級',
-      '2': '日商簿記2級',
-      '3': '日商簿記3級',
-      'other': '未定・要相談'
-    }[grade] || grade;
+    // honeypot
+    if (form._gotcha.value) return;
 
-    const body = encodeURIComponent(
-      `【簿記合格ナビ お問い合わせ】\n\n` +
-      `お名前：${name}\n` +
-      `メールアドレス：${email}\n` +
-      `希望する級：${gradeLabel}\n` +
-      `目標試験日：${examDate || '未定'}\n\n` +
-      `【お問い合わせ内容】\n${message}`
-    );
+    if (!validateForm(form)) return;
 
-    const subject = encodeURIComponent(`【簿記合格ナビ】お問い合わせ：${name}様`);
-    window.location.href = `mailto:ryoto140529@gmail.com?subject=${subject}&body=${body}`;
+    const btn = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+    const label = document.getElementById('submitLabel');
+    const errorBar = document.getElementById('errorBar');
 
-    document.getElementById('successMsg').style.display = 'block';
-    form.reset();
-    setTimeout(() => {
-      document.getElementById('successMsg').style.display = 'none';
-    }, 5000);
+    btn.disabled = true;
+    spinner.style.display = 'block';
+    label.textContent = '送信中...';
+    errorBar.style.display = 'none';
+
+    const serviceLabel = {
+      boki3: '日商簿記3級', boki2: '日商簿記2級', boki1: '日商簿記1級',
+      actuary: 'アクチュアリー試験対策', waseda: '早稲田会計研究科受験対策', other: '未定・相談したい'
+    }[form.service.value] || form.service.value;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `【簿記合格ナビ】お問い合わせ：${form.name.value}様`,
+          from_name: '簿記合格ナビ お問い合わせフォーム',
+          name: form.name.value,
+          email: form.email.value,
+          service: serviceLabel,
+          exam_date: form.exam_date.value || '未定',
+          message: form.message.value,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('formView').style.display = 'none';
+        document.getElementById('successView').style.display = 'block';
+        form.reset();
+        document.getElementById('charCount').textContent = '0 / 1000文字';
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      errorBar.style.display = 'flex';
+      btn.disabled = false;
+      spinner.style.display = 'none';
+      label.textContent = '送信する';
+    }
+  }
+
+  function resetForm() {
+    document.getElementById('successView').style.display = 'none';
+    document.getElementById('formView').style.display = 'block';
   }
 
   // Smooth scroll offset for fixed header

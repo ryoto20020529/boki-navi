@@ -739,6 +739,239 @@
       color: var(--navy);
     }
 
+    /* ===== PLAN TOGGLE & PRICING CONTROLS ===== */
+    .pricing-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+    .pricing-toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pricing-toggle-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .pricing-plan-toggle {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: 12px;
+      padding: 5px;
+      gap: 0;
+    }
+    .pricing-plan-btn {
+      padding: 9px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--gray-600);
+      font-family: inherit;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .pricing-plan-btn.active {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 2px 8px rgba(45,156,88,0.35);
+    }
+    .savings-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, #2d9c58, #1a7a3f);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+      animation: pulse-savings 2s ease infinite;
+    }
+    @keyframes pulse-savings {
+      0%,100% { box-shadow: 0 0 0 0 rgba(45,156,88,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(45,156,88,0); }
+    }
+    .plan-unit-sub {
+      font-size: 11px;
+      color: var(--gray-600);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .price-card.featured .plan-unit-sub { color: rgba(255,255,255,0.55); }
+
+    /* ===== CASE STUDY CARD ===== */
+    .case-study-card {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+      border: 2px solid #c7d7f5;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-study-card::after {
+      content: '📋';
+      position: absolute;
+      top: 16px; right: 20px;
+      font-size: 56px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .case-study-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .case-study-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .case-study-subtitle {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 28px;
+    }
+    .case-study-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .case-study-table th {
+      background: var(--navy);
+      color: white;
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+    }
+    .case-study-table th:not(:first-child) { text-align: right; }
+    .case-study-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #d4e0f7;
+      background: white;
+    }
+    .case-study-table td:not(:first-child) {
+      text-align: right;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .case-study-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 900;
+      font-size: 15px;
+      background: #e8f0fe;
+    }
+    .case-study-savings-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #d1fae5;
+      border: 1px solid #6ee7b7;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #065f46;
+    }
+
+    /* ===== TEACHER TIER ===== */
+    .tier-section-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 6px;
+      margin-top: 48px;
+    }
+    .tier-section-desc {
+      font-size: 14px;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+    }
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .tier-card {
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 2px solid;
+      transition: all 0.3s;
+    }
+    .tier-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .tier-card.standard { background: var(--gray-50); border-color: var(--gray-200); }
+    .tier-card.highclass { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: var(--gold); }
+    .tier-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tier-label.standard { background: var(--gray-200); color: var(--gray-700); }
+    .tier-label.highclass { background: var(--gold); color: var(--navy); }
+    .tier-card h4 { font-size: 17px; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
+    .tier-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 16px;
+    }
+    .tier-card ul li::before { content: '▸ '; color: var(--navy); font-weight: 700; }
+    .tier-price-tag {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      padding: 8px 0;
+      border-top: 1px solid var(--gray-200);
+    }
+    .tier-card.highclass .tier-price-tag { border-color: rgba(212,160,23,0.3); }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+    .fade-in.visible {
+      animation: fadeInUp 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .fade-in.delay-1 { animation-delay: 0.1s; }
+    .fade-in.delay-2 { animation-delay: 0.2s; }
+    .fade-in.delay-3 { animation-delay: 0.3s; }
+
     /* ===== TUTORS ===== */
     #tutors { background: var(--gray-50); }
     .tutor-grid {
@@ -1186,6 +1419,12 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .premium-grid { grid-template-columns: 1fr !important; }
       .price-card.featured { transform: scale(1); }
+      .tier-grid { grid-template-columns: 1fr; }
+      .case-study-card { padding: 24px 20px; }
+      .case-study-table { font-size: 12px; }
+      .case-study-table th, .case-study-table td { padding: 9px 10px; }
+      .pricing-toggle-row { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .pricing-controls { align-items: flex-start; padding: 0 4px; }
       .tutor-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1607,28 +1846,45 @@
   <div class="section-inner">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">明確な料金体系</h2>
-    <p class="section-desc">入会金・登録費は一切なし。簿記指導から早稲田会計研究科の受験対策まで、1コマから気軽にどうぞ。</p>
+    <p class="section-desc">入会金・登録費は一切なし。単発1回からOK。続けるなら月額プランがお得。</p>
 
-    <div class="pricing-mode-toggle">
-      <button class="pricing-mode-btn active" onclick="showMode('online', this)">💻 オンライン（Zoom等）</button>
-      <button class="pricing-mode-btn" onclick="showMode('offline', this)">🏫 対面（東京都内）</button>
+    <!-- ===== 2段トグル ===== -->
+    <div class="pricing-controls">
+      <div class="pricing-toggle-row">
+        <span class="pricing-toggle-label">受講形式</span>
+        <div class="pricing-mode-toggle">
+          <button class="pricing-mode-btn active" onclick="showMode('online', this)">💻 オンライン</button>
+          <button class="pricing-mode-btn" onclick="showMode('offline', this)">🏫 対面（東京都内）</button>
+        </div>
+      </div>
+      <div class="pricing-toggle-row">
+        <span class="pricing-toggle-label">申込タイプ</span>
+        <div class="pricing-plan-toggle">
+          <button class="pricing-plan-btn" onclick="showPlan('tanpatsu', this)">🎯 単発（1回のみ）</button>
+          <button class="pricing-plan-btn active" onclick="showPlan('monthly', this)">📅 月額（週1×4回）<span class="savings-chip">お得</span></button>
+        </div>
+      </div>
     </div>
 
     <!-- 簿記3グレード -->
     <div class="pricing-grid">
       <!-- 3級 -->
-      <div class="price-card">
+      <div class="price-card fade-in">
         <h3>Standard</h3>
         <div class="price-grade">日商簿記 3級</div>
         <div class="price-amount">
           <span class="price-yen">¥</span>
-          <span class="price-num online-price" data-online="2,800" data-offline="3,500">2,800</span>
-          <span class="price-unit">/ 1時間</span>
+          <span class="price-num plan-price"
+            data-online-tanpatsu="4,200" data-online-monthly="11,200"
+            data-offline-tanpatsu="5,250" data-offline-monthly="14,000">11,200</span>
+          <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="plan-unit-sub monthly-note">週1回×4回 ／ 1回あたり ¥2,800（税込）</div>
+        <div class="plan-unit-sub tanpatsu-note" style="display:none">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
           <span class="price-sub-label online-label online-mode">オンライン</span>
           <span class="price-sub-label offline-label offline-mode" style="display:none">対面</span>
-          <span class="price-sub-amount">税込・入会金なし</span>
+          <span class="price-sub-amount">入会金なし</span>
         </div>
         <div class="price-note">初めて簿記を学ぶ方から3級合格を目指す方向け。仕訳の基礎から決算書まで丁寧に指導。</div>
         <ul class="price-features">
@@ -1640,19 +1896,23 @@
       </div>
 
       <!-- 2級 -->
-      <div class="price-card featured">
+      <div class="price-card featured fade-in delay-1">
         <div class="price-badge">人気 No.1</div>
         <h3>Advanced</h3>
         <div class="price-grade">日商簿記 2級</div>
         <div class="price-amount">
           <span class="price-yen">¥</span>
-          <span class="price-num online-price" data-online="3,800" data-offline="4,500">3,800</span>
-          <span class="price-unit">/ 1時間</span>
+          <span class="price-num plan-price"
+            data-online-tanpatsu="5,700" data-online-monthly="15,200"
+            data-offline-tanpatsu="6,750" data-offline-monthly="18,000">15,200</span>
+          <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="plan-unit-sub monthly-note" style="color:rgba(255,255,255,0.55)">週1回×4回 ／ 1回あたり ¥3,800（税込）</div>
+        <div class="plan-unit-sub tanpatsu-note" style="display:none;color:rgba(255,255,255,0.55)">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
           <span class="price-sub-label online-label online-mode" style="background:rgba(219,234,254,0.3);color:#93c5fd">オンライン</span>
           <span class="price-sub-label offline-label offline-mode" style="display:none;background:rgba(220,252,231,0.3);color:#86efac">対面</span>
-          <span class="price-sub-amount">税込・入会金なし</span>
+          <span class="price-sub-amount">入会金なし</span>
         </div>
         <div class="price-note">商業簿記＋工業簿記の両分野をカバー。就職・転職・昇進に直結する人気グレード。</div>
         <ul class="price-features">
@@ -1665,18 +1925,22 @@
       </div>
 
       <!-- 1級 -->
-      <div class="price-card">
+      <div class="price-card fade-in delay-2">
         <h3>Expert</h3>
         <div class="price-grade">日商簿記 1級</div>
         <div class="price-amount">
           <span class="price-yen">¥</span>
-          <span class="price-num online-price" data-online="5,500" data-offline="6,500">5,500</span>
-          <span class="price-unit">/ 1時間</span>
+          <span class="price-num plan-price"
+            data-online-tanpatsu="8,250" data-online-monthly="22,000"
+            data-offline-tanpatsu="9,750" data-offline-monthly="26,000">22,000</span>
+          <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="plan-unit-sub monthly-note">週1回×4回 ／ 1回あたり ¥5,500（税込）</div>
+        <div class="plan-unit-sub tanpatsu-note" style="display:none">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
           <span class="price-sub-label online-label online-mode">オンライン</span>
           <span class="price-sub-label offline-label offline-mode" style="display:none">対面</span>
-          <span class="price-sub-amount">税込・入会金なし</span>
+          <span class="price-sub-amount">入会金なし</span>
         </div>
         <div class="price-note">会計士・税理士受験の登竜門。早稲田院生の専門知識を活かした高水準な指導。</div>
         <ul class="price-features">
@@ -1685,6 +1949,42 @@
           <li><div class="price-check">✓</div>論点整理と本試験対策</li>
           <li><div class="price-check">✓</div>授業後メール質問OK</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- ===== 受講例カード（学生レポート形式）===== -->
+    <div class="case-study-card fade-in">
+      <div class="case-study-eyebrow">受講例 — 実際の料金イメージ</div>
+      <div class="case-study-title">大学2年生 Aさんの場合</div>
+      <div class="case-study-subtitle">目標：日商簿記2級 ３ヶ月以内に合格 ／ オンライン ／ スタンダード講師</div>
+      <table class="case-study-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>単発プラン<br><small style="font-weight:400;opacity:0.8">（1回ごと）</small></th>
+            <th>月額プラン<br><small style="font-weight:400;opacity:0.8">（週1×4回）</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1回あたり</td>
+            <td>¥5,700</td>
+            <td style="color:#1a7a3f;font-weight:700">¥3,800</td>
+          </tr>
+          <tr>
+            <td>月4回 合計</td>
+            <td>¥22,800</td>
+            <td style="color:#1a7a3f;font-weight:700">¥15,200</td>
+          </tr>
+          <tr>
+            <td>３ヶ月 合計</td>
+            <td style="color:#b91c1c">¥68,400</td>
+            <td style="color:#1a7a3f">¥45,600</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="case-study-savings-box">
+        💰 月額プランなら３ヶ月で <strong style="font-size:16px;margin:0 4px">¥22,800</strong> お得！（単発比）
       </div>
     </div>
 
@@ -1795,8 +2095,36 @@
       </div>
     </div>
 
+    <!-- ===== 講師グレード ===== -->
+    <div class="tier-section-title fade-in">講師グレードについて</div>
+    <div class="tier-section-desc">基本は対象資格の合格者が担当。さらにハイレベルな指導を希望の場合は要相談。</div>
+    <div class="tier-grid">
+      <div class="tier-card standard fade-in">
+        <div class="tier-label standard">⭐ スタンダード</div>
+        <h4>対象資格合格者の早稲田院生</h4>
+        <ul>
+          <li>簿記2級担当 → 2級以上合格者</li>
+          <li>簿記1級担当 → 1級合格者</li>
+          <li>会計研究科で日々会計学を研究</li>
+          <li>丁寧な解説・質問しやすい雰囲気</li>
+        </ul>
+        <div class="tier-price-tag">💰 上記掲載価格が適用されます</div>
+      </div>
+      <div class="tier-card highclass fade-in delay-1">
+        <div class="tier-label highclass">👑 ハイクラス</div>
+        <h4>簿記1級・公認会計士受験中の上位院生</h4>
+        <ul>
+          <li>公認会計士・税理士試験受験経験者</li>
+          <li>より深い理論・応用問題に対応</li>
+          <li>1級難関論点の本質から解説</li>
+          <li>少数精鋭・スケジュール応相談</li>
+        </ul>
+        <div class="tier-price-tag">📩 料金は要相談（目安：掲載価格＋30〜50%）</div>
+      </div>
+    </div>
+
     <div class="pricing-note-box">
-      ℹ️ <span>授業料は事前銀行振込制です（振込手数料は受講生負担）。対面授業は東京都内のカフェ・図書館等で実施します（場所は要相談）。1コマ単位から予約可能。複数コマのまとめ予約も承ります。</span>
+      <span>💳 授業料は事前銀行振込制（振込手数料は受講生負担）。月額プランは月初一括払い。対面は東京都内カフェ・図書館等（場所は要相談）。ハイクラス講師は別途お見積もりします。</span>
     </div>
   </div>
 </section>
@@ -2146,16 +2474,65 @@
 </footer>
 
 <script>
-  // Pricing mode toggle
+  // ===== PRICING STATE =====
+  let pricingMode = 'online';   // 'online' | 'offline'
+  let pricingPlan = 'monthly';  // 'tanpatsu' | 'monthly'
+
   function showMode(mode, btn) {
+    pricingMode = mode;
     document.querySelectorAll('.pricing-mode-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.online-price').forEach(el => {
-      el.textContent = mode === 'online' ? el.dataset.online : el.dataset.offline;
-    });
-    document.querySelectorAll('.online-mode').forEach(el => el.style.display = mode === 'online' ? '' : 'none');
-    document.querySelectorAll('.offline-mode').forEach(el => el.style.display = mode === 'offline' ? '' : 'none');
+    updatePricingDisplay();
   }
+
+  function showPlan(plan, btn) {
+    pricingPlan = plan;
+    document.querySelectorAll('.pricing-plan-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updatePricingDisplay();
+  }
+
+  function updatePricingDisplay() {
+    // Update plan-price elements (4-combination)
+    const key = pricingMode + (pricingPlan === 'tanpatsu' ? 'Tanpatsu' : 'Monthly');
+    document.querySelectorAll('.plan-price').forEach(el => {
+      el.textContent = el.dataset[key] || '';
+    });
+
+    // Update unit text
+    document.querySelectorAll('.plan-unit').forEach(el => {
+      el.textContent = pricingPlan === 'tanpatsu' ? '/ 1回' : '/ 月';
+    });
+
+    // Show/hide sub-notes
+    document.querySelectorAll('.monthly-note').forEach(el => {
+      el.style.display = pricingPlan === 'monthly' ? '' : 'none';
+    });
+    document.querySelectorAll('.tanpatsu-note').forEach(el => {
+      el.style.display = pricingPlan === 'tanpatsu' ? '' : 'none';
+    });
+
+    // Online/offline labels
+    document.querySelectorAll('.online-mode').forEach(el => el.style.display = pricingMode === 'online' ? '' : 'none');
+    document.querySelectorAll('.offline-mode').forEach(el => el.style.display = pricingMode === 'offline' ? '' : 'none');
+
+    // Legacy online-price elements (premium cards)
+    document.querySelectorAll('.online-price').forEach(el => {
+      el.textContent = pricingMode === 'online' ? el.dataset.online : el.dataset.offline;
+    });
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // FAQ toggle
   function toggleFaq(btn) {

@@ -956,6 +956,28 @@
     }
     .tier-card.highclass .tier-price-tag { border-color: rgba(212,160,23,0.3); }
 
+    /* ===== OFFLINE DIFF BADGE ===== */
+    .price-diff-badge {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #92400e;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .price-diff-badge.show { display: inline-flex; }
+    .price-card.featured .price-diff-badge {
+      background: rgba(245,200,66,0.18);
+      border-color: rgba(245,200,66,0.5);
+      color: #fde68a;
+    }
+
     /* ===== SCROLL ANIMATIONS ===== */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -1883,6 +1905,7 @@
             data-offline-tanpatsu="5,250" data-offline-monthly="14,000">11,200</span>
           <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="price-diff-badge">🏫 オンラインより +¥700/h</div>
         <div class="plan-unit-sub monthly-note">週1回×4回 ／ 1回あたり ¥2,800（税込）</div>
         <div class="plan-unit-sub tanpatsu-note" style="display:none">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
@@ -1912,6 +1935,7 @@
             data-offline-tanpatsu="6,750" data-offline-monthly="18,000">15,200</span>
           <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="price-diff-badge">🏫 オンラインより +¥700/h</div>
         <div class="plan-unit-sub monthly-note" style="color:rgba(255,255,255,0.55)">週1回×4回 ／ 1回あたり ¥3,800（税込）</div>
         <div class="plan-unit-sub tanpatsu-note" style="display:none;color:rgba(255,255,255,0.55)">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
@@ -1941,6 +1965,7 @@
             data-offline-tanpatsu="9,750" data-offline-monthly="26,000">22,000</span>
           <span class="price-unit plan-unit">/ 月</span>
         </div>
+        <div class="price-diff-badge">🏫 オンラインより +¥1,000/h</div>
         <div class="plan-unit-sub monthly-note">週1回×4回 ／ 1回あたり ¥5,500（税込）</div>
         <div class="plan-unit-sub tanpatsu-note" style="display:none">1回ごとにお支払い（税込）</div>
         <div class="price-sub-row">
@@ -2061,6 +2086,7 @@
           <span class="price-num online-price" data-online="5,500" data-offline="6,500" style="color:#f5c842; font-size:38px">5,500</span>
           <span class="price-unit" style="color:#f5c842">/ 1時間</span>
         </div>
+        <div class="price-diff-badge">🏫 オンラインより +¥1,000/h</div>
         <div class="price-sub-row" style="border-color:rgba(255,255,255,0.15)">
           <span class="price-sub-label online-label online-mode" style="background:rgba(219,234,254,0.2);color:#93c5fd">オンライン</span>
           <span class="price-sub-label offline-label offline-mode" style="display:none;background:rgba(220,252,231,0.2);color:#86efac">対面</span>
@@ -2087,6 +2113,7 @@
           <span class="price-num online-price" data-online="6,000" data-offline="7,000" style="color:#f5c842; font-size:38px">6,000</span>
           <span class="price-unit" style="color:#f5c842">/ 1時間</span>
         </div>
+        <div class="price-diff-badge">🏫 オンラインより +¥1,000/h</div>
         <div class="price-sub-row" style="border-color:rgba(255,255,255,0.15)">
           <span class="price-sub-label online-label online-mode" style="background:rgba(219,234,254,0.2);color:#93c5fd">オンライン</span>
           <span class="price-sub-label offline-label offline-mode" style="display:none;background:rgba(220,252,231,0.2);color:#86efac">対面</span>
@@ -2527,6 +2554,11 @@
     // Legacy online-price elements (premium cards)
     document.querySelectorAll('.online-price').forEach(el => {
       el.textContent = pricingMode === 'online' ? el.dataset.online : el.dataset.offline;
+    });
+
+    // Show/hide offline diff badges
+    document.querySelectorAll('.price-diff-badge').forEach(el => {
+      el.classList.toggle('show', pricingMode === 'offline');
     });
   }
 

@@ -1,0 +1,82 @@
+<section id="contact" aria-labelledby="contact-heading" class="bg-soft">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Contact</span>
+      <h2 class="sec-title" id="contact-heading">無料相談・お問い合わせ</h2>
+      <p class="sec-desc">「どの級から始めればいい？」「月いくらになる？」など、相談だけでも大歓迎です。<b>24時間以内</b>にメールでご返信します。強引な勧誘は一切ありません。</p>
+    </div>
+    <div class="contact-grid">
+      <aside class="contact-side">
+        <h3>相談だけでもOKです</h3>
+        <p>現在のレベルや目標試験日をうかがい、最適な受講プランと月額の目安をご提案します。</p>
+        <ul>
+          <li><b>返信の目安</b>24時間以内（土日祝も対応）</li>
+          <li><b>相談料</b>0円（入会金・登録料もなし）</li>
+          <li><b>書いておくとスムーズ</b>希望コース・目標試験日・現在のレベル・受講ペース</li>
+          <li><b>メールで直接</b><a href="mailto:ryoto140529@gmail.com">ryoto140529@gmail.com</a></li>
+        </ul>
+      </aside>
+      <div class="form-card">
+        <div id="formView">
+          <h3>無料相談フォーム（約1分）</h3>
+          <div class="form-error-bar" id="errorBar" role="alert">送信に失敗しました。時間をおいて再度お試しいただくか、ryoto140529@gmail.com まで直接ご連絡ください。</div>
+          <form id="contactForm" novalidate>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="fg">
+              <label for="f-name">お名前 <span class="req">必須</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" placeholder="例）山田 花子" aria-describedby="err-name" />
+              <div class="err" id="err-name">お名前を入力してください</div>
+            </div>
+            <div class="fg">
+              <label for="f-email">メールアドレス <span class="req">必須</span></label>
+              <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" placeholder="例）example@mail.com" aria-describedby="err-email" />
+              <div class="err" id="err-email">正しいメールアドレスを入力してください</div>
+            </div>
+            <div class="fg">
+              <label for="f-service">ご希望のコース <span class="req">必須</span></label>
+              <select id="f-service" name="service" aria-describedby="err-service">
+                <option value="">選択してください</option>
+                <option value="boki3">日商簿記 3級</option>
+                <option value="boki2">日商簿記 2級</option>
+                <option value="boki1">日商簿記 1級</option>
+                <option value="waseda">早稲田会計研究科（アカスク）受験対策</option>
+                <option value="other">まだ決まっていない・相談したい</option>
+              </select>
+              <div class="err" id="err-service">コースを選択してください</div>
+            </div>
+            <div class="fg">
+              <label for="f-mode">受講形式 <span class="opt">任意</span></label>
+              <select id="f-mode" name="lesson_mode">
+                <option value="オンライン">オンライン（全国対応）</option>
+                <option value="対面">対面（東京都内）</option>
+                <option value="未定">未定・相談したい</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label for="f-exam">目標試験日・受験予定時期 <span class="opt">任意</span></label>
+              <input type="text" id="f-exam" name="exam_date" placeholder="例）2027年2月の統一試験" />
+            </div>
+            <div class="fg">
+              <label for="messageArea">ご相談内容 <span class="req">必須</span></label>
+              <textarea id="messageArea" name="message" maxlength="1000" placeholder="例）簿記2級の工業簿記が苦手です。週1回・平日夜で受講したいです。" aria-describedby="err-message"></textarea>
+              <div class="char-count" id="charCount">0 / 1000文字</div>
+              <div class="err" id="err-message">ご相談内容を入力してください</div>
+            </div>
+            <div class="fg">
+              <label class="consent"><input type="checkbox" id="privacyConsent" /> <span><a href="/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して送信します</span></label>
+              <div class="err" id="err-privacy">プライバシーポリシーへの同意が必要です</div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn"><span class="spinner" id="spinner"></span><span id="submitLabel">無料で相談を送信する</span></button>
+            <p class="cta-note" style="text-align:center">送信後、24時間以内にメールでご返信します</p>
+          </form>
+        </div>
+        <div id="successView" role="status">
+          <div class="ok" aria-hidden="true">✓</div>
+          <h3>送信が完了しました</h3>
+          <p>お問い合わせありがとうございます。<b>24時間以内</b>にご入力のメールアドレスへご返信します。</p>
+          <button type="button" class="link-btn" id="againBtn">別の内容で問い合わせる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

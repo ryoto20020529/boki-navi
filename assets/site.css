@@ -380,3 +380,5 @@ br.sp { display: none; }
 .from { white-space: nowrap; }
 [data-mode="online"] thead .col-online, [data-mode="offline"] thead .col-offline { background: var(--orange); color: #fff; }
 [data-mode="online"] thead .col-offline, [data-mode="offline"] thead .col-online { color: rgba(255,255,255,.55); background: var(--navy); }
+.courses-2 { grid-template-columns: repeat(2, 1fr); max-width: 860px; margin: 0 auto; }
+@media (max-width: 560px) { .courses-2 { grid-template-columns: 1fr; } }

@@ -4,12 +4,10 @@
 
   // 料金マスタ（税込・1時間あたり）。HTMLの料金表と必ず一致させること
   var PRICES = {
-    boki3:   { name: '日商簿記3級',               online: 2800, offline: 3500 },
-    boki2:   { name: '日商簿記2級',               online: 3800, offline: 4500 },
-    boki1:   { name: '日商簿記1級',               online: 5500, offline: 6500 },
-    stat:    { name: '統計検定（4級〜1級）',       online: 4500, offline: 5500 },
-    actuary: { name: 'アクチュアリー試験',         online: 5500, offline: 6500 },
-    waseda:  { name: '早稲田会計研究科（アカスク）', online: 6000, offline: 7000 }
+    boki3:   { name: '日商簿記3級',               online: 2000, offline: 2500 },
+    boki2:   { name: '日商簿記2級',               online: 2600, offline: 3100 },
+    boki1:   { name: '日商簿記1級',               online: 3500, offline: 4000 },
+    waseda:  { name: '早稲田会計研究科（アカスク）', online: 4000, offline: 4500 }
   };
   var yen = function (n) { return n.toLocaleString('ja-JP'); };
 

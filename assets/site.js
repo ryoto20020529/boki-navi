@@ -112,6 +112,21 @@
     counter.className = 'char-count' + (c > 900 ? ' warn' : '');
   });
 
+  var CONTACT_EMAIL = 'wasecpa.academy@gmail.com';
+  var ERR_TEXT = {
+    'err-name': 'お名前を入力してください',
+    'err-email': '正しいメールアドレスを入力してください',
+    'err-service': 'コースを選択してください',
+    'err-message': 'ご相談内容を入力してください',
+    'err-privacy': 'プライバシーポリシーへの同意が必要です'
+  };
+  // メッセージ類はHTMLに書かず、必要になった時だけ表示する（初回表示で誤解を生まないため）
+  var showErr = function (id, show) {
+    var el = document.getElementById(id);
+    el.textContent = show ? ERR_TEXT[id] : '';
+    el.hidden = !show;
+  };
+
   var validate = function () {
     var ok = true;
     [
@@ -123,13 +138,56 @@
       var good = f.check(f.el.value);
       f.el.classList.toggle('error', !good);
       f.el.setAttribute('aria-invalid', good ? 'false' : 'true');
-      document.getElementById(f.err).style.display = good ? 'none' : 'block';
+      showErr(f.err, !good);
       if (!good) ok = false;
     });
     var consent = document.getElementById('privacyConsent');
-    document.getElementById('err-privacy').style.display = consent.checked ? 'none' : 'block';
+    showErr('err-privacy', !consent.checked);
     if (!consent.checked) ok = false;
     return ok;
+  };
+
+  var errorBar = document.getElementById('errorBar');
+  var formView = document.getElementById('formView');
+  var successView = document.getElementById('successView');
+
+  var mailtoHref = function () {
+    var serviceLabel = form.service.value ? form.service.options[form.service.selectedIndex].text : '未選択';
+    var body = 'お名前：' + form.name.value + '\nメールアドレス：' + form.email.value + '\nご希望のコース：' + serviceLabel +
+      '\n受講形式：' + form.lesson_mode.value + '\n目標試験日：' + (form.exam_date.value || '未定') + '\n\nご相談内容：\n' + form.message.value;
+    return 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('【簿記合格ナビ】無料相談') + '&body=' + encodeURIComponent(body);
+  };
+
+  var showSendError = function () {
+    var offline = navigator.onLine === false;
+    errorBar.innerHTML =
+      '<b>送信できませんでした</b>' +
+      (offline ? 'インターネットに接続されていないようです。接続を確認してから、もう一度お試しください。' : '通信状況などにより、送信が完了しませんでした。') +
+      '<ul><li>入力内容はそのまま残っています</li><li>少し時間をおいて「もう一度送信する」を押してください</li><li>繰り返し失敗する場合は、入力内容を入れたメールを作成できます</li></ul>' +
+      '<div class="actions"><button type="button" class="retry">もう一度送信する</button><a class="mail"></a></div>';
+    var mail = errorBar.querySelector('.mail');
+    mail.textContent = 'メールで送る（入力内容つき）';
+    mail.href = mailtoHref();
+    errorBar.querySelector('.retry').addEventListener('click', function () {
+      if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true }));
+    });
+    errorBar.hidden = false;
+    errorBar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  var showSuccess = function () {
+    successView.innerHTML =
+      '<div class="ok" aria-hidden="true">✓</div><h3>送信が完了しました</h3>' +
+      '<p>お問い合わせありがとうございます。<b>24時間以内</b>にご入力のメールアドレスへご返信します。</p>' +
+      '<p class="small-note">返信が届かない場合は、迷惑メールフォルダをご確認いただくか ' + CONTACT_EMAIL + ' までご連絡ください。</p>' +
+      '<button type="button" class="link-btn">別の内容で問い合わせる</button>';
+    successView.querySelector('.link-btn').addEventListener('click', function () {
+      successView.hidden = true; successView.innerHTML = '';
+      formView.hidden = false;
+    });
+    formView.hidden = true;
+    successView.hidden = false;
+    successView.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   form.addEventListener('submit', function (e) {
@@ -143,8 +201,8 @@
     var btn = document.getElementById('submitBtn');
     var spinner = document.getElementById('spinner');
     var label = document.getElementById('submitLabel');
-    var errorBar = document.getElementById('errorBar');
-    btn.disabled = true; spinner.style.display = 'block'; label.textContent = '送信中...'; errorBar.style.display = 'none';
+    btn.disabled = true; spinner.style.display = 'block'; label.textContent = '送信中...';
+    errorBar.hidden = true; errorBar.innerHTML = '';
 
     var serviceLabel = form.service.options[form.service.selectedIndex].text;
     fetch('https://api.web3forms.com/submit', {
@@ -164,20 +222,11 @@
       })
     }).then(function (r) { return r.json(); }).then(function (data) {
       if (!data.success) throw new Error(data.message);
-      document.getElementById('formView').style.display = 'none';
-      document.getElementById('successView').style.display = 'block';
+      showSuccess();
       form.reset();
       counter.textContent = '0 / 1000文字';
-    }).catch(function () {
-      errorBar.style.display = 'flex';
-    }).then(function () {
+    }).catch(showSendError).then(function () {
       btn.disabled = false; spinner.style.display = 'none'; label.textContent = '無料で相談を送信する';
     });
-  });
-
-  var again = document.getElementById('againBtn');
-  if (again) again.addEventListener('click', function () {
-    document.getElementById('successView').style.display = 'none';
-    document.getElementById('formView').style.display = 'block';
   });
 })();

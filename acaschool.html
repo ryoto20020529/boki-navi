@@ -214,18 +214,19 @@
       <div class="form-card">
         <div id="formView">
           <h3>無料相談フォーム（約1分）</h3>
-          <div class="form-error-bar" id="errorBar" role="alert">送信に失敗しました。時間をおいて再度お試しいただくか、wasecpa.academy@gmail.com まで直接ご連絡ください。</div>
+          <div class="form-error-bar" id="errorBar" role="alert" hidden></div>
+          <noscript><p class="form-note">フォームの送信にはJavaScriptが必要です。お手数ですが <a href="mailto:wasecpa.academy@gmail.com">wasecpa.academy@gmail.com</a> まで直接ご連絡ください。</p></noscript>
           <form id="contactForm" novalidate>
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="fg">
               <label for="f-name">お名前 <span class="req">必須</span></label>
               <input type="text" id="f-name" name="name" autocomplete="name" placeholder="例）山田 花子" aria-describedby="err-name" />
-              <div class="err" id="err-name">お名前を入力してください</div>
+              <div class="err" id="err-name" hidden></div>
             </div>
             <div class="fg">
               <label for="f-email">メールアドレス <span class="req">必須</span></label>
               <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" placeholder="例）example@mail.com" aria-describedby="err-email" />
-              <div class="err" id="err-email">正しいメールアドレスを入力してください</div>
+              <div class="err" id="err-email" hidden></div>
             </div>
             <div class="fg">
               <label for="f-service">ご希望のコース <span class="req">必須</span></label>
@@ -237,7 +238,7 @@
                 <option value="waseda">早稲田会計研究科（アカスク）受験対策</option>
                 <option value="other">まだ決まっていない・相談したい</option>
               </select>
-              <div class="err" id="err-service">コースを選択してください</div>
+              <div class="err" id="err-service" hidden></div>
             </div>
             <div class="fg">
               <label for="f-mode">受講形式 <span class="opt">任意</span></label>
@@ -255,22 +256,17 @@
               <label for="messageArea">ご相談内容 <span class="req">必須</span></label>
               <textarea id="messageArea" name="message" maxlength="1000" placeholder="例）簿記2級の工業簿記が苦手です。週1回・平日夜で受講したいです。" aria-describedby="err-message"></textarea>
               <div class="char-count" id="charCount">0 / 1000文字</div>
-              <div class="err" id="err-message">ご相談内容を入力してください</div>
+              <div class="err" id="err-message" hidden></div>
             </div>
             <div class="fg">
               <label class="consent"><input type="checkbox" id="privacyConsent" /> <span><a href="/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して送信します</span></label>
-              <div class="err" id="err-privacy">プライバシーポリシーへの同意が必要です</div>
+              <div class="err" id="err-privacy" hidden></div>
             </div>
             <button type="submit" class="btn btn-primary btn-block" id="submitBtn"><span class="spinner" id="spinner"></span><span id="submitLabel">無料で相談を送信する</span></button>
             <p class="cta-note" style="text-align:center">送信後、24時間以内にメールでご返信します</p>
           </form>
         </div>
-        <div id="successView" role="status">
-          <div class="ok" aria-hidden="true">✓</div>
-          <h3>送信が完了しました</h3>
-          <p>お問い合わせありがとうございます。<b>24時間以内</b>にご入力のメールアドレスへご返信します。</p>
-          <button type="button" class="link-btn" id="againBtn">別の内容で問い合わせる</button>
-        </div>
+        <div id="successView" role="status" hidden></div>
       </div>
     </div>
   </div>

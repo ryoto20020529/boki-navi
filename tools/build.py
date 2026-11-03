@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """src/pages/*.html の <!--@name--> を src/partials/<name>.html で置換し、リポジトリ直下へ出力する。
-使い方: python3 tools/build.py   （ヘッダー・フッター・フォームを変更したら必ず再実行）"""
+src/root/ のファイル（sitemap.xml・robots.txt）もリポジトリ直下へ出力する。
+どちらも {{SITE}} をサイトのURLに置き換える。
+
+使い方: python3 tools/build.py
+独自ドメインへ移行するときは SITE を書き換えて再実行するだけでよい。"""
 import pathlib, re
+
+SITE = "https://boki-navi.vercel.app"  # 末尾スラッシュなし
 
 root = pathlib.Path(__file__).resolve().parent.parent
 partials = {p.stem: p.read_text(encoding="utf-8").rstrip("\n") for p in (root / "src/partials").glob("*.html")}
@@ -14,6 +20,10 @@ for page in sorted((root / "src/pages").glob("*.html")):
         if key not in partials:
             raise SystemExit(f"{page.name}: unknown partial {m.group(1)}")
         return partials[key]
-    out = re.sub(r"<!--@([\w-]+)-->", sub, html)
+    out = re.sub(r"<!--@([\w-]+)-->", sub, html).replace("{{SITE}}", SITE)
     (root / page.name).write_text(out, encoding="utf-8")
     print("built", page.name)
+
+for f in sorted((root / "src/root").iterdir()):
+    (root / f.name).write_text(f.read_text(encoding="utf-8").replace("{{SITE}}", SITE), encoding="utf-8")
+    print("built", f.name)

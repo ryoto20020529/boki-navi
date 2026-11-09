@@ -1,0 +1,17 @@
+name: site-check
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: サイトの自動チェック（料金・FAQ・リンク・禁止表現・生成物の一致）
+        run: python3 tools/check.py

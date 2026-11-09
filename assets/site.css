@@ -8,8 +8,8 @@
   --navy-2: #1f3c7f;
   --blue: #2563eb;
   --sky: #eaf2ff;
-  --orange: #ff7a1a;
-  --orange-d: #e8620a;
+  --orange: #c9500a;
+  --orange-d: #a03f06;
   --yellow: #ffd23f;
   --cream: #fff8ec;
   --green: #16a34a;
@@ -154,7 +154,7 @@ section { padding: 80px 0; }
 .price-table tr.hl { background: #fffaf0; }
 .price-table .pop { display: inline-block; font-size: 11px; background: var(--orange); color: #fff; border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
 .price-table td a { font-size: 13px; font-weight: 800; color: var(--blue); white-space: nowrap; }
-[data-mode="online"] .col-offline, [data-mode="offline"] .col-online { color: #a3acbd; }
+[data-mode="online"] .col-offline, [data-mode="offline"] .col-online { color: #667085; }
 [data-mode="online"] .col-online, [data-mode="offline"] .col-offline { background: #fff6e8; }
 .zero-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; list-style: none; margin-top: 26px; }
 .zero-list li { background: #fff; border-radius: var(--radius); padding: 16px 10px; text-align: center; box-shadow: var(--shadow); font-weight: 800; color: var(--navy); font-size: 14px; }
@@ -188,7 +188,7 @@ section { padding: 80px 0; }
 .compare tbody th { text-align: left; color: var(--navy); white-space: nowrap; }
 .compare .o { color: var(--orange); font-size: 20px; font-weight: 900; }
 .compare .t { color: var(--ink-2); font-size: 18px; }
-.compare .x { color: #a3acbd; font-size: 18px; }
+.compare .x { color: #667085; font-size: 18px; }
 
 /* Cases */
 .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -282,7 +282,7 @@ section { padding: 80px 0; }
 .link-btn { background: none; border: 0; color: var(--blue); font: inherit; font-weight: 700; cursor: pointer; margin-top: 14px; text-decoration: underline; }
 
 /* Final CTA */
-.final-cta { background: linear-gradient(135deg, #ff8a30, var(--orange-d)); color: #fff; text-align: center; padding: 64px 0; }
+.final-cta { background: linear-gradient(135deg, var(--orange), var(--orange-d)); color: #fff; text-align: center; padding: 64px 0; }
 .final-cta h2 { font-size: clamp(22px, 3.2vw, 32px); font-weight: 900; line-height: 1.5; }
 .final-cta p { margin: 12px 0 24px; opacity: .95; }
 .final-cta .btn-primary { background: #fff; color: var(--orange-d); box-shadow: 0 5px 0 rgba(0,0,0,.18); }

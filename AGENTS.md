@@ -18,6 +18,8 @@ assets/site.css       共通スタイル
 assets/site.js        共通スクリプト（料金マスタ PRICES・月額シミュレーター・フォーム）
 *.html（直下）         生成物。index / boki / boki3 / boki2 / boki1 / acaschool は直接編集しない
 privacy / terms / tokushoho.html  法務ページ（手書き。直接編集してよい）
+src/articles/*.html   コラム記事（ここを編集する。column/<slug>.html と column/index.html、sitemap が自動生成される）
+column/               生成物。直接編集しない
 docs/                 レポート類
 ```
 1. **直下の `index.html` `boki.html` `acaschool.html` を直接編集しない。** `src/` を編集してから `python3 tools/build.py` を実行し、生成物も一緒にコミットする。
@@ -57,6 +59,15 @@ docs/                 レポート類
 - FAQは、表示している `<details>` と JSON-LD の FAQPage を**同じ文面**にする。
 - 新しいページを足したら `src/root/sitemap.xml` に追加し、フッターと関連コースからリンクする。
 - noindex のページ（法務ページ）を sitemap に入れない。
+
+## コラム記事のルール
+- 記事は `src/articles/<slug>.html` に書く。先頭に `<!--title: -->` `<!--description: -->` `<!--date: YYYY-MM-DD-->` `<!--lead: -->` `<!--cta: -->`（相談フォームの service 値：boki3 / boki2 / boki1 / waseda / other）`<!--cta_label: -->` を書く。内容を直したら `<!--updated: YYYY-MM-DD-->` を足す。
+- 非公開にしたい記事は、先頭に `<!--draft: true-->` を付ける（生成されず、古い生成物も消える）。公開するときはこの行を消す。
+- 入試・試験について運営者の経験を書くときは、「公式情報」と「運営者の経験」を分けて書き、経験には年度によって異なる旨を添える。公表されていない入試問題や質問の再現は載せない。
+- 本文に H1 は書かない（title から生成）。見出しは h2 → h3 の順。使えるクラスは `ol.curri` `table.journal` `table.info-table` `ul.points` `p.small-note`。
+- 試験制度の数字は、公式情報で確認できる配点・試験時間・合格基準だけ書く。日程・受験料・学習時間の目安・合格率は書かず、公式サイトへ誘導する。
+- 金額（円）を書いてよいのは、仕訳の例（`table.journal` と直後の `p.small-note`）の中だけ。料金は書かず、コースのページへリンクする。
+- 執筆者は運営者名のみ。経歴・実績・受講者の声は書かない。
 
 ## フォーム
 - 送信には Web3Forms を使う（キーは `assets/site.js` の `WEB3FORMS_KEY`）。

@@ -31,6 +31,7 @@ for page in sorted((root / "src/pages").glob("*.html")):
 
 # ---------- コラム記事 ----------
 # src/articles/<slug>.html の先頭に <!--key: value--> 形式で title / description / date / lead / cta（相談フォームの service 値）/ cta_label を書く。
+# <!--draft: true--> を付けた記事は非公開（生成しない）。
 # 本文は .prose の中に入る HTML（h2・h3・p・ul・ol.curri・table.journal など）。H1 は書かない（title から生成する）。
 def expand(text):
     def sub(m):
@@ -47,6 +48,9 @@ for src in sorted((root / "src/articles").glob("*.html")):
     for k in ("title", "description", "date", "lead", "cta", "cta_label"):
         if k not in meta:
             raise SystemExit(f"{src.name}: <!--{k}: ...--> がありません")
+    if meta.get("draft") == "true":   # <!--draft: true--> の記事は生成しない（非公開の下書き）
+        print("skip (draft)", src.name)
+        continue
     meta["slug"] = src.stem
     meta["body"] = re.sub(r"<!--\w+:.*?-->\n?", "", raw).strip()
     articles.append(meta)
@@ -129,20 +133,28 @@ for m in articles:
     (out_dir / "column" / f'{m["slug"]}.html').write_text(expand(page), encoding="utf-8")
     print("built", f'column/{m["slug"]}.html')
 
+# 下書きにした記事・削除した記事の古い生成物を消す
+keep = {f'{m["slug"]}.html' for m in articles} | {"index.html"}
+if (out_dir / "column").is_dir():
+    for old in (out_dir / "column").glob("*.html"):
+        if old.name not in keep:
+            old.unlink()
+            print("removed", f"column/{old.name}")
+
 if articles:
     INDEX = """<!DOCTYPE html>
 <html lang="ja">
 <head>
 <!--@head-->
-  <title>簿記の学習コラム｜つまずきやすい論点の解説｜簿記合格ナビ</title>
-  <meta name="description" content="日商簿記3級・2級の学習でつまずきやすい論点や、試験方式の違い、早稲田会計研究科の出願書類について、進め方を解説するコラムです。" />
+  <title>学習コラム｜簿記の試験とアカスク入試の進め方｜簿記合格ナビ</title>
+  <meta name="description" content="日商簿記の試験方式の違いや、早稲田大学大学院会計研究科（アカスク）の入試対策・出願書類について、進め方を解説するコラムです。" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <link rel="canonical" href="{{SITE}}/column" />
   <meta property="og:url" content="{{SITE}}/column" />
-  <meta property="og:title" content="簿記の学習コラム｜簿記合格ナビ" />
-  <meta property="og:description" content="日商簿記の学習でつまずきやすい論点の解説と、学習の進め方。" />
-  <meta name="twitter:title" content="簿記の学習コラム｜簿記合格ナビ" />
-  <meta name="twitter:description" content="日商簿記の学習でつまずきやすい論点の解説と、学習の進め方。" />
+  <meta property="og:title" content="学習コラム｜簿記合格ナビ" />
+  <meta property="og:description" content="日商簿記の試験と、早稲田会計研究科（アカスク）入試の進め方。" />
+  <meta name="twitter:title" content="学習コラム｜簿記合格ナビ" />
+  <meta name="twitter:description" content="日商簿記の試験と、早稲田会計研究科（アカスク）入試の進め方。" />
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "簿記合格ナビ", "item": "{{SITE}}/"},
@@ -155,8 +167,8 @@ if articles:
   <nav class="breadcrumb container" aria-label="パンくずリスト"><ol><li><a href="/">ホーム</a></li><li aria-current="page">コラム</li></ol></nav>
   <section class="sub-hero" aria-labelledby="column-title">
     <div class="container">
-      <div class="sec-head"><span class="sec-en">Column</span><h1 class="sec-title" id="column-title">簿記の学習コラム</h1>
-      <p class="sec-desc">独学で手が止まりやすい論点と、学習の進め方をまとめています。</p></div>
+      <div class="sec-head"><span class="sec-en">Column</span><h1 class="sec-title" id="column-title">学習コラム</h1>
+      <p class="sec-desc">日商簿記の試験と、早稲田会計研究科（アカスク）入試の進め方をまとめています。</p></div>
       <ul class="column-list">
 %s
       </ul>

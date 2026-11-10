@@ -21,7 +21,8 @@ errors, warns = [], []
 def err(page, msg): errors.append(f"[{page}] {msg}")
 def warn(page, msg): warns.append(f"[{page}] {msg}")
 
-PAGES = ["index.html", "boki.html", "acaschool.html"]          # 生成されるページ
+PAGES = sorted(p.name for p in (ROOT / "src/pages").glob("*.html"))   # 生成されるページ
+PATHS = {p: "/" if p == "index.html" else "/" + p[:-5] for p in PAGES}
 LEGAL = ["tokushoho.html", "privacy.html", "terms.html"]       # 手書きの法務ページ
 ALL = PAGES + LEGAL
 read = lambda name: (ROOT / name).read_text(encoding="utf-8")
@@ -59,6 +60,8 @@ def check_prices():
     for page in ALL:
         s = read(page)
         body = re.sub(r"<(script|style)[\s\S]*?</\1>", "", s)
+        # 仕訳の例（table.journal と直後の注記）の金額は、料金ではないので対象外
+        body = re.sub(r'<table class="journal">[\s\S]*?</table>(\s*<p class="small-note">[\s\S]*?</p>)?', "", body)
         for m in re.finditer(r"¥\s*([\d,]{4,})|([\d,]{4,})円", body):
             n = int((m.group(1) or m.group(2)).replace(",", ""))
             if n not in ok and n != 50000:
@@ -68,7 +71,7 @@ def check_prices():
                 err(page, f"JSON-LD の price {m.group(1)} が PRICES にありません")
     # 料金表の行ごとの一致（表の行に出る online/offline の組を PRICES と照合）
     pairs = {(on, off) for _, on, off in prices.values()}
-    for page in ["index.html", "boki.html", "acaschool.html", "tokushoho.html"]:
+    for page in PAGES:
         s = read(page)
         for on, off in re.findall(r'class="p col-online">¥([\d,]+)<span>/時</span></td><td class="p col-offline">¥([\d,]+)', s):
             if (int(on.replace(",", "")), int(off.replace(",", ""))) not in pairs:
@@ -124,7 +127,7 @@ class Head(HTMLParser):
         if tag == "link" and a.get("rel") == "canonical": self.canonical = a.get("href")
 
 def check_meta():
-    paths = {"index.html": "/", "boki.html": "/boki", "acaschool.html": "/acaschool"}
+    paths = PATHS
     for page in ALL:
         s = read(page); h = Head(); h.feed(s)
         title = re.search(r"<title>(.*?)</title>", s, re.S)
@@ -148,8 +151,8 @@ def check_meta():
 
 # ---------- 5. 内部リンク・sitemap・robots ----------
 def check_links():
-    route = {"/": "index.html", "/boki": "boki.html", "/acaschool": "acaschool.html",
-             "/tokushoho": "tokushoho.html", "/privacy": "privacy.html", "/terms": "terms.html"}
+    route = {v: k for k, v in PATHS.items()}
+    route.update({"/tokushoho": "tokushoho.html", "/privacy": "privacy.html", "/terms": "terms.html"})
     ids = {p: set(re.findall(r'\bid="([^"]+)"', read(p))) for p in ALL}
     for page in ALL:
         for href in re.findall(r'href="([^"]+)"', read(page)):
@@ -168,7 +171,7 @@ def check_links():
             if frag and frag not in ids[target]:
                 err(page, f"リンク先のアンカーが存在しません: {href}")
     sm = read("sitemap.xml"); locs = re.findall(r"<loc>([^<]+)</loc>", sm)
-    want = {SITE + (p if p != "/" else "/") for p in ("/", "/boki", "/acaschool")}
+    want = {SITE + p for p in PATHS.values()}
     if set(locs) != want: err("sitemap.xml", f"sitemap の URL が公開ページと一致しません: {sorted(set(locs) ^ want)}")
     if f"Sitemap: {SITE}/sitemap.xml" not in read("robots.txt"): err("robots.txt", "Sitemap の行が SITE と一致しません")
     for p in PAGES:

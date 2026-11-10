@@ -22,7 +22,9 @@ def err(page, msg): errors.append(f"[{page}] {msg}")
 def warn(page, msg): warns.append(f"[{page}] {msg}")
 
 PAGES = sorted(p.name for p in (ROOT / "src/pages").glob("*.html"))   # 生成されるページ
-PATHS = {p: "/" if p == "index.html" else "/" + p[:-5] for p in PAGES}
+COLUMN = sorted("column/" + p.name for p in (ROOT / "column").glob("*.html")) if (ROOT / "column").is_dir() else []   # コラム（src/articles から生成）
+PAGES += COLUMN
+PATHS = {p: "/" if p == "index.html" else "/column" if p == "column/index.html" else "/" + p[:-5] for p in PAGES}
 LEGAL = ["tokushoho.html", "privacy.html", "terms.html"]       # 手書きの法務ページ
 ALL = PAGES + LEGAL
 read = lambda name: (ROOT / name).read_text(encoding="utf-8")
@@ -36,9 +38,14 @@ def check_build_in_sync():
         if r.returncode != 0:
             err("build", "tools/build.py が失敗しました: " + r.stderr.strip()[-200:])
             return
-        for f in sorted(pathlib.Path(tmp).iterdir()):
-            if (ROOT / f.name).read_text(encoding="utf-8") != f.read_text(encoding="utf-8"):
-                err(f.name, "生成物が src/ と一致しません。直接編集せず、src/ を編集して python3 tools/build.py を実行してください")
+        built = set()
+        for f in sorted(p for p in pathlib.Path(tmp).rglob("*") if p.is_file()):
+            rel = f.relative_to(tmp).as_posix(); built.add(rel)
+            if not (ROOT / rel).exists() or (ROOT / rel).read_text(encoding="utf-8") != f.read_text(encoding="utf-8"):
+                err(rel, "生成物が src/ と一致しません。直接編集せず、src/ を編集して python3 tools/build.py を実行してください")
+        for c in COLUMN:
+            if c not in built:
+                err(c, "元になる src/articles の記事がありません（不要な生成物なら削除してください）")
 
 
 # ---------- 2. 料金の一致 ----------
@@ -108,7 +115,7 @@ def check_faq_and_jsonld():
             for (q, a1), (_, a2) in zip(faq_ld, faq_html):
                 if strip_tags(a1) != a2:
                     err(page, f"FAQ『{q}』の回答が、表示と構造化データで一致しません")
-        if not faq_html:
+        if not faq_html and not page.startswith("column/"):
             warn(page, "FAQ がありません")
 
 
@@ -175,7 +182,8 @@ def check_links():
     if set(locs) != want: err("sitemap.xml", f"sitemap の URL が公開ページと一致しません: {sorted(set(locs) ^ want)}")
     if f"Sitemap: {SITE}/sitemap.xml" not in read("robots.txt"): err("robots.txt", "Sitemap の行が SITE と一致しません")
     for p in PAGES:
-        if p != "index.html" and f"/{p[:-5]}" not in "".join(re.findall(r'href="([^"]+)"', read("index.html") + read("src/partials/footer.html"))):
+        if p.startswith("column/") and p != "column/index.html": continue   # 記事は /column の一覧からリンクされる
+        if p != "index.html" and PATHS[p] not in "".join(re.findall(r'href="([^"]+)"', read("index.html") + read("src/partials/footer.html"))):
             warn(p, "トップまたはフッターからリンクされていません")
     try:
         v = json.loads(read("vercel.json"))

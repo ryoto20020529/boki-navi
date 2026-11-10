@@ -16,7 +16,7 @@ src/root/             sitemap.xml・robots.txt のテンプレート
 tools/build.py        src/ から直下のHTML等を生成するスクリプト（SITE定数でURLを一元管理）
 assets/site.css       共通スタイル
 assets/site.js        共通スクリプト（料金マスタ PRICES・月額シミュレーター・フォーム）
-*.html（直下）         生成物。index / boki / acaschool は直接編集しない
+*.html（直下）         生成物。index / boki / boki3 / boki2 / boki1 / acaschool は直接編集しない
 privacy / terms / tokushoho.html  法務ページ（手書き。直接編集してよい）
 docs/                 レポート類
 ```
@@ -38,6 +38,7 @@ docs/                 レポート類
 - `assets/site.js` の `PRICES`
 - `src/pages/index.html`（ヒーロー・トラストバー・コースカード・料金表・シミュレーター初期値・プラン例・FAQ・JSON-LDの Offer）
 - `src/pages/boki.html` / `src/pages/acaschool.html`（ヒーロー・料金表・例示金額・JSON-LD・関連コースカード）
+- `src/pages/boki3.html` / `boki2.html` / `boki1.html`（級別ページ。ヒーロー・料金表・月額の例・JSON-LD・FAQ・関連コースカード）
 - `src/partials/head-common.html`（OGP alt）・`src/partials/footer.html`
 - `tokushoho.html`（販売価格）・`terms.html`（授業料）
 - `ogp.png`（画像内の「¥2,000〜」）
@@ -51,6 +52,8 @@ docs/                 レポート類
 
 ## SEOのルール
 - 各ページの title・meta description は固有にする。H1は1ページに1つ。
+- 試験の配点・時間・合格基準など制度の数字は、日本商工会議所の公式情報で確認できるものだけ書く。日程・受験料・学習時間の目安は書かず、公式サイトへ誘導する。
+- 仕訳の例（`table.journal`）は、貸借が一致し、会計処理として正しいことを確認する。
 - FAQは、表示している `<details>` と JSON-LD の FAQPage を**同じ文面**にする。
 - 新しいページを足したら `src/root/sitemap.xml` に追加し、フッターと関連コースからリンクする。
 - noindex のページ（法務ページ）を sitemap に入れない。

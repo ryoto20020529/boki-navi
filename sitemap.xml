@@ -6,5 +6,8 @@
     <image:image><image:loc>https://boki-navi.vercel.app/ogp.png</image:loc></image:image>
   </url>
   <url><loc>https://boki-navi.vercel.app/boki</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://boki-navi.vercel.app/boki3</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://boki-navi.vercel.app/boki2</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://boki-navi.vercel.app/boki1</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://boki-navi.vercel.app/acaschool</loc><lastmod>2026-11-09</lastmod></url>
 </urlset>

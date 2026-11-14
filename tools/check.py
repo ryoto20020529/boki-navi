@@ -230,7 +230,7 @@ def check_legal_consistency():
         for name, on, off in load_prices().values():
             if f"{on:,}円" not in s: err(page, f"{name} のオンライン料金 {on:,}円 が記載されていません")
     if "wasecpa.academy@gmail.com" not in tk: err("tokushoho.html", "連絡先メールアドレスがありません")
-    for kw in ("電話番号", "月初に前払い", "毎月5日", "1か月分まで", "未受講分は、全額返金", "提携・公認等の関係はありません", "別途お見積もり"):
+    for kw in ("電話番号", "前月の末日まで", "前月20日まで", "最初の授業の前日まで", "1か月分まで", "未受講分は、全額返金", "提携・公認等の関係はありません", "別途お見積もり"):
         if kw not in tk: err("tokushoho.html", f"必須の記載「{kw}」がありません")
     for page in LEGAL:
         if "最終更新日：" not in read(page): err(page, "最終更新日がありません")
